@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>	
-    <title>v.1.7</title>
+    <title>v.1.8</title>
     <meta charset="utf-8" />
     <style>
         table {
@@ -342,14 +342,15 @@
                 параметров, а справа блок выражений, использующий эти параметры: (список_параметров) => выражение.<br/>
                 Для написания можно использовать Action, Action&lt;in T&gt;, Func&lt;in TIn, out TOut&gt;, bool Predicate&lt;
 				in T&gt;<br/>
-				<br/>
             </div>
         </li>
         <li>
             <div class="questiion" id="readonlyvsconst">
                 Различие между read only & const<br />
             </div>
-				http://stackoverflow.com/questions/55984/what-is-the-difference-between-const-and-readonly
+			Взглянув на IL код <b>const</b>, мы увидим, что это <b>static</b> член. <br/>
+			<b>read only</b> переменные необходимо инициализировать либо при объявлении либо в конструкторе.
+			<div class="link">http://stackoverflow.com/questions/55984/what-is-the-difference-between-const-and-readonly</div>
             <div>
             </div>
         </li>
@@ -407,8 +408,8 @@
                 класса?
             </div>
             <div>
-				Если посмотреть на IL код, то мы увидим, что static это комбинация abstract и sealed. отсюда вытекает ...<br/>
-				Вызов конструктора статического класса происходит при первом обращении к этому Типу.<br/>
+				Если посмотреть на IL код, то мы увидим, что <b>static</b> это комбинация <b>abstract</b> и <b>sealed</b>. отсюда вытекает ...<br/>
+				Вызов конструктора статического класса происходит при присоздании объекта типа или при первом обращении к <b>static</b> члену типа.<br/>
             </div>
         </li>
         <li>
@@ -435,7 +436,7 @@
                 Что такое перечисления (enum)?<br />
             </div>
             <div>
-                Набор именованных констант. Все enum'ы являются производными от System.ValueType.
+                Набор именованных констант. Все enum'ы являются производными от <b>System.ValueType</b>.
             </div>
         </li>
         <li>
