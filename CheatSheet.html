@@ -856,6 +856,7 @@
         <a href="#surrogatekey">Что такое натуральный и суррогатный ключ?</a><br />
         <a href="#referentialintegrity">Что такое ссылочная целостность? Какие способы ее организации можете назвать?</a><br />
         <a href="#relationvsobject">Что такое реляционная модель? Отличие от объектной</a><br />
+        <a href="#unionvsunionall">What is the difference between UNION and UNION ALL?</a><br />
         <a href="#aaaa"></a><br />
     </div>
     <ul>
@@ -1318,6 +1319,30 @@
             <div>
 			<b>Реляционная модель</b> представляет собой совокупность данных, состоящую из набора двумерных таблиц. В теории множеств таблице соответствует термин отношение <b>(relation)</b>, физическим представлением которого является таблица, отсюда и название модели – <b>реляционная</b>.<br/>
 			<div class="link"> https://habrahabr.ru/post/93356/ </div>			
+			</div>
+        </li>
+        <li>
+            <div class="questiion" id="unionvsunionall">
+				What is the difference between UNION and UNION ALL?
+			</div>
+            <div>
+			<b>UNION</b> removes duplicate records (where all columns in the results are the same), <b>UNION ALL</b> does not.<br/>
+			There is a performance hit when using <b>UNION</b> instead of <b>UNION ALL</b>, since the database server must do additional work to remove the duplicate rows, but usually you do not want the duplicates (especially when developing reports).<br/>
+			<b>UNION Example:</b><br/>
+			SELECT 'foo' AS bar UNION SELECT 'foo' AS bar<br/>
+			<b>Result:</b><br/>
+			bar<br/>
+			<b>----</b><br/>
+			foo<br/>
+			<br/>
+			<b>UNION ALL Example:</b><br/>
+			SELECT 'foo' AS bar UNION ALL SELECT 'foo' AS bar<br/>
+			<b>Result:</b><br/>
+			bar<br/>
+			<b>----</b><br/>
+			foo<br/>
+			foo<br/>
+			<div class="link"> https://stackoverflow.com/questions/49925/what-is-the-difference-between-union-and-union-all </div>			
 			</div>
         </li>
     </ul>
